@@ -2,10 +2,13 @@ import sklearn
 import pickle
 import nltk
 from nltk.corpus import stopwords
-stop_words = stopwords.words('english')
 from nltk.stem import PorterStemmer
 
-tfidf =  pickle.load(open('tfidf.pkl', 'rb')) 
+
+stop_words = stopwords.words('english') 
+# better file handling needed
+with open('tfidf.pkl', 'rb') as f:
+    tfidf = pickle.load(f)
 
 def preprocess(inp):
     inp = inp.lower()

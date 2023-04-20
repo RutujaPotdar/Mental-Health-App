@@ -1,12 +1,14 @@
 import streamlit as st
 import sklearn
 import pickle
-from preprocessing import preprocess
+from utils.preprocessing import preprocess
 
 # Take a reference of 'https://www.kaggle.com/code/rutujapotdar/suicide-text-classification-nlp'
 
-# Load the pre-trained model
-model =  pickle.load(open('best_model.pkl', 'rb'))   
+# Load the pre-trained model 
+with open('utils/best_model.pkl', 'rb') as f:
+    model = pickle.load(f)
+
 print('Done loading')
 def app():
     # Set the app title and heading
